@@ -11,7 +11,7 @@
  *
  * Date: 2016-06-09T18:02Z
  */
-( function( global, factory ) {
+( function(global, factory) {
 
 	"use strict";
 
@@ -135,7 +135,7 @@ jQuery.fn = jQuery.prototype = {
 
 	// Take an array of elements and push it onto the stack
 	// (returning the new matched element set)
-	pushStack: function( elems ) {
+ pushStack: function(elems) {
 
 		// Build a new jQuery matched element set
 		var ret = jQuery.merge( this.constructor(), elems );
