@@ -1,0 +1,16 @@
+body {
+  background-color: #EEE;
+}
+
+.welcome-container {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 3em;
+}
+
+.row-container {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 1em;
+  padding-bottom: 3em;
+}
