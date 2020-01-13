@@ -36,11 +36,11 @@
               Categories
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Tech</a>
-              <a class="dropdown-item" href="#">Astronomy</a>
-              <a class="dropdown-item" href="#">History</a>
-              <a class="dropdown-item" href="#">Science</a>
-              <a class="dropdown-item" href="#">Biology</a>
+              <a class="dropdown-item" href="/categories/TECH">Tech</a>
+              <a class="dropdown-item" href="/categories/ASTRONOMY">Astronomy</a>
+              <a class="dropdown-item" href="/categories/HISTORY">History</a>
+              <a class="dropdown-item" href="/categories/SCIENCE">Science</a>
+              <a class="dropdown-item" href="/categories/BIOLOGY">Biology</a>
             </div>
           </li>
           <li class="nav-item">
@@ -61,41 +61,41 @@
   <div class="row row-cols-1 row-cols-md-2">
     <div class="col mb-4">
       <div class="card">
-        <img src="https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" class="card-img-top" alt="science">
+        <img src=<%= categories[0].category_photo_url%> class="card-img-top" alt="tech">
         <div class="card-body">
-          <h5 class="card-title">Science</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-success">Read More</a>
+          <h5 class="card-title"><%= categories[0].name%></h5>
+          <p class="card-text"></p>
+          <a href="/categories/TECH" class="btn btn-success">Read More</a>
         </div>
       </div>
     </div>
     <div class="col mb-4">
       <div class="card">
-        <img src="https://images.pexels.com/photos/50711/board-electronics-computer-data-processing-50711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="tech">
+        <img src=<%= categories[1].category_photo_url%> class="card-img-top" alt="astronomy">
         <div class="card-body">
-          <h5 class="card-title">Tech</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-success">Read More</a>
+          <h5 class="card-title"><%= categories[1].name%></h5>
+          <p class="card-text"></p>
+          <a href="/categories/ASTRONOMY" class="btn btn-success">Read More</a>
         </div>
       </div>
     </div>
     <div class="col mb-4">
       <div class="card">
-        <img src="https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="biology">
+        <img src=<%= categories[2].category_photo_url%> class="card-img-top" alt="history">
         <div class="card-body">
-          <h5 class="card-title">Biology</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-success">Read More</a>
+          <h5 class="card-title"><%= categories[2].name%></h5>
+          <p class="card-text"></p>
+          <a href="/categories/HISTORY'" class="btn btn-success">Read More</a>
         </div>
       </div>
     </div>
     <div class="col mb-4">
       <div class="card">
-        <img src="https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="astronomy">
+        <img src=<%= categories[3].category_photo_url%> class="card-img-top" alt="SCIENCE">
         <div class="card-body">
-          <h5 class="card-title">Astronomy</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-success">Read More</a>
+          <h5 class="card-title"><%= categories[3].name%></h5>
+          <p class="card-text"></p>
+          <a href="/categories/SCIENCE" class="btn btn-success">Read More</a>
         </div>
       </div>
     </div>
@@ -103,41 +103,41 @@
   <div class="row row-cols-1 row-cols-md-2">
     <div class="col mb-4">
       <div class="card">
-        <img src="https://images.pexels.com/photos/951531/pexels-photo-951531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="history">
+        <img src=<%= categories[4].category_photo_url%> class="card-img-top" alt="BIOLOGY">
         <div class="card-body">
-          <h5 class="card-title">History</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-success">Read More</a>
+          <h5 class="card-title"><%= categories[4].name%></h5>
+          <p class="card-text"></p>
+          <a href="/categories/BIOLOGY" class="btn btn-success">Read More</a>
         </div>
       </div>
     </div>
     <div class="col mb-4">
       <div class="card">
-        <img src="https://images.pexels.com/photos/595804/pexels-photo-595804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="tech">
+        <img src=<%= categories[2].category_photo_url%> class="card-img-top" alt="history">
         <div class="card-body">
-          <h5 class="card-title">Tech</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-success">Read More</a>
+          <h5 class="card-title"><%= categories[2].name%></h5>
+          <p class="card-text"></p>
+          <a href="/categories/HISTORY'" class="btn btn-success">Read More</a>
         </div>
       </div>
     </div>
     <div class="col mb-4">
       <div class="card">
-        <img src="https://images.pexels.com/photos/920157/pexels-photo-920157.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="biology">
+        <img src=<%= categories[4].category_photo_url%> class="card-img-top" alt="Biology">
         <div class="card-body">
-          <h5 class="card-title">Biology</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-success">Read More</a>
+          <h5 class="card-title"><%= categories[4].name%></h5>
+          <p class="card-text"></p>
+          <a href="/categories/BIOLOGY" class="btn btn-success">Read More</a>
         </div>
       </div>
     </div>
     <div class="col mb-4">
       <div class="card">
-        <img src="https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="astronomy">
+        <img src=<%= categories[1].category_photo_url%> class="card-img-top" alt="astronomy">
         <div class="card-body">
-          <h5 class="card-title">Astronomy</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-success">Read More</a>
+          <h5 class="card-title"><%= categories[1].name%></h5>
+          <p class="card-text"></p>
+          <a href="/categories/ASTRONOMY" class="btn btn-success">Read More</a>
         </div>
       </div>
     </div>
