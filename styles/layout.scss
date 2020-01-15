@@ -1,9 +1,15 @@
 // See: https://sass-lang.com/
 
-body {
-  background-color: #EEE;
-
-  h1 {
-    color: #244751;
-  }
+.review-page {
+  padding-top: 2em;
+  width: 70%;
+  margin: 0 auto;
 }
+
+select {
+  font-size: .9rem;
+  padding: 2px 5px;
+  width: 23%;
+}
+
+
