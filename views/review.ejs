@@ -31,34 +31,30 @@
       <h5 class="card-header">Category</h5>
       <div class="card-body">
         <h5 class="card-title">Title</h5>
-        <p class="card-text">Description Description Description Description Description Description Description
-          Description Description Description Description Description Description Description Description Description
-          Description Description Description Description Description Description Description Description Description
-          Description Description Description Description Description Description Description Description Description
-          Description Description Description Description Description Description Description Description Description
-          Description Description</p>
-          <a href="#"><i class="fas fa-link"></i> Visit</a>
-          <br>
-          <form action="" method="">
-            <input class="btn btn-primary" type="submit" value="Like">
-          </form>
-        </div>
-        <form action="resources/review" method="POST" id="rate-select">
-          <input type="submit" value="Rate">
-        </form>
-        <select name="rating" form="rate-select">
-          <option value="">--Please choose an option--</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+        <p class="card-text">
+          </p>
+        <a href="#"><i class="fas fa-link"></i> Visit</a>
         <br>
-        <form class="" action="/resource/review" method="POST">
-          <textarea name="text" placeholder=""></textarea>
-          <input type="submit" class="btn btn-light btn-sm" value="Comment">
+        <form action="/resources/review/<%= allResources[0].id %>" method="POST">
+          <input class="btn btn-primary" type="submit" value="Like">
         </form>
+      </div>
+      <form action="/resources/review/<%= allResources[0].id %>" method="POST" id="rate-select">
+        <input type="submit" value="Rate">
+      </form>
+      <select name="rating" form="rate-select">
+        <option value="">--Please choose an option--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <br>
+      <form class="" action="/resources/review/<%= allResources[0].id %>" method="POST">
+        <textarea name="text" placeholder=""></textarea>
+        <input type="Submit" class="btn btn-light btn-sm" value="submit">
+      </form>
   </section>
 
   <!-- Bootstrap JS -->
