@@ -21,7 +21,7 @@
    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
 ​
   <%- include('./partials/_header'); %>
-  <title>Login</title>
+  <title>Register</title>
 </head>
 ​
 <body>
@@ -29,22 +29,22 @@
   <!-- Register Page -->
   <main style="margin: 3em;">
   <section class="register-page">
-    <form action="/users/login" method="POST">
+    <form action="/users/register" method="POST">
       <div class="form-group row">
         <label for="formGroupExampleInput" class="col-sm-1 col-form-label">Name</label>
         <div class="col-sm-4">
-          <input name = "name" type="text" class="form-control"  >
+          <input name="name" type="text" class="form-control"  >
         </div>
       </div>
       <div class="form-group row">
         <label for="inputEmail3" class="col-sm-1 col-form-label">Email</label>
         <div class="col-sm-4">
-          <input name = "email" type="email" class="form-control"  >
+          <input name="email" type="email" class="form-control"  >
         </div>
       </div>
       <div class="form-group row">
         <div class="col-sm-4">
-          <button type="submit" class="btn btn-success">Login</button>
+          <button type="submit" class="btn btn-success">Register</button>
         </div>
       </div>
     </form>
