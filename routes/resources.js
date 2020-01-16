@@ -80,7 +80,30 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+  router.get("/addResource", (req, res) => {
 
+    let userID = req.session.userId;
+    res.render("/addResource", {userID : userID});
+
+  });
+  router.post("/addResource", (req, res) => {
+    let title = req.body.title;
+    let description = req.body.description;
+    let url = req.body.url;
+    let userID = req.session.userId;
+    let category = req.session.category_id;
+
+    db.query(`INSERT INTO resources(userID, title, description, url, category_id)
+              VALUES($1, $2, $3, $4, $5);`, [title, description, url, userID, category])
+      .then(data => {
+        res.redirect("/", { userID});
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
 // needs fix
   router.get("/reviews/:id", (req, res) => {
     let resourceID = req.params.id;

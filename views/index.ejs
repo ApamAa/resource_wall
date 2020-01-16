@@ -23,7 +23,7 @@
   <%- include('./partials/_header'); %>
   <title>Resource Wall</title>
 </head>
-
+<script>function clickHandle (event) { console.log('value:', arguments); }</script>
 <body>
 
   <div   class="container resources">
@@ -56,6 +56,8 @@
                   </span>
               </a>
               <div class="card-body">
+                <pre>Resource: <%= resource.id %></pre>
+                <button value="<%= resource.id %>" onclick="clickHandle()">Like</button>
                 <h5 class="card-title"><%= resource.title %></h5>
                 <br>
                 <div class="toggle">
