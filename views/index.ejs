@@ -33,10 +33,8 @@
           <% allResources.forEach(function(resource, index) { %>
             <!-- start from 4th element apply hideme class for scroll -->
             <div class="card hideme" data-resourceId="<%= resource.res_id %>">
-              <img class="card-img-top" src="<%= resource.category_photo_url%>>" alt="Card image cap">
-              <!-- <a class="nav-link active hide" href="/resources/liked/<%=resource.res_id %>"> -->
-                <a class="nav-link active hide" href="#"></a>
-                <!--
+              <img class="card-img-top" src="<%= resource.category_photo_url%>" alt="Card image cap">
+              <a class="nav-link active hide" href="#">                <!--
                 <% if (resource.like_this) { %>
 
                   <i class="fa fa-heart" data-likes="<%=  resource.like_this %>"></i>
@@ -56,8 +54,6 @@
                   </span>
               </a>
               <div class="card-body">
-                <pre>Resource: <%= resource.id %></pre>
-                <button value="<%= resource.id %>" onclick="clickHandle()">Like</button>
                 <h5 class="card-title"><%= resource.title %></h5>
                 <br>
                 <div class="toggle">
@@ -76,7 +72,7 @@
         <div class="jumbotron">
             <h1 class="display-4">Hello !</h1>
             <hr class="my-4">
-            <a class="btn btn-primary btn-lg" href="/resources/new" role="button">Create Resources</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button">gaeidiiiii</a>
         </div>
       <% } %>
 

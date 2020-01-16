@@ -26,36 +26,83 @@
 
 <body>
 
-  <section class="review-page">
-    <div class="card">
-      <h5 class="card-header">Category</h5>
-      <div class="card-body">
-        <h5 class="card-title">Title</h5>
-        <p class="card-text">
-          </p>
-        <a href="#"><i class="fas fa-link"></i> Visit</a>
-        <br>
-        <form action="/resources/review/<%= allResources[0].id %>" method="POST">
-          <input class="btn btn-primary" type="submit" value="Like">
-        </form>
+  <div   class="container resources">
+    <div class="row justify-content-center">
+        <div class="card-columns">
+          <% allComments.forEach(function(commentItem, index) { %>
+            <!-- start from 4th element apply hideme class for scroll -->
+            <div class="card hideme">
+
+                <% if (commentItem.like_this) { %>
+
+                  <i class="fa fa-heart" data-likes="<%=  commentItem.like_this %>"></i>
+                <% } else { %>
+                  <i class="far fa-heart" data-likes="<%=  commentItem.like_this %>"></i>
+                <% } %>
+                <span class="like"><%= commentItem.rating %></span>
+                <span>
+                    <% if (commentItem.rating) { %>
+                      <% for ( i = 0; i < commentItem.rating; i += 1){ %>
+                        <i class="fas fa-star"></i>
+                      <% } %>
+                    <% } else { %>
+                      <i class="far fa-star"></i>
+                    <% } %>
+                  </span>
+              </a>
+              <div class="card-body">
+                <h5 class="card-title"><%= commentItem.title %></h5>
+                <br>
+                <div class="toggle">
+                  <p class="card-text"><%= commentItem.description %></p>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+    </div>
+
+  </div>
+
+
+  <div class="page-wrapper">
+    <header>
+      <h2 class="review-title"><%= resource.name %></h2>
+    </header>
+    <article>
+      <h4 class="review-title"><%= resource.title %></h4>
+      <p class="review-description"><%= resource.description %></p>
+      <a href="<%= resource.url %>" class="visit-btn"><i class="fas fa-link"></i> Visit</a>
+    </article>
+    <footer>
+      <hr>
+      <form action="/resources/review/<%= resource.id %>" method="POST">
+      <div class="form-group">
+        <label for="sel1">Rate:</label>
+        <select class="form-control" id="rating" name="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
       </div>
-      <form action="/resources/review/<%= allResources[0].id %>" method="POST" id="rate-select">
-        <input type="submit" value="Rate">
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
+      </div>
+      <div class="like-btn">
+        <label for="like">Like</label>
+        <input class="btn btn-outline-success" type="checkbox" name="like" id="isLiked" value="1">
+      </div>
+      <div class="form-group">
+        <input class="btn btn-outline-success" type="submit" value="Submit">
+      </div>
       </form>
-      <select name="rating" form="rate-select">
-        <option value="">--Please choose an option--</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <br>
-      <form class="" action="/resources/review/<%= allResources[0].id %>" method="POST">
-        <textarea name="text" placeholder=""></textarea>
-        <input type="Submit" class="btn btn-light btn-sm" value="submit">
-      </form>
-  </section>
+  </div>
+    </footer>
+  </div>
 
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
