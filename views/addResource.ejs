@@ -20,66 +20,41 @@
    <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
 
   <%- include('./partials/_header'); %>
-  <title>My Resource Wall</title>
+  <title>+</title>
 </head>
+<%console.log('inja')%>
 <body>
 <!-- Jumbotron Save Link Container -->
-  <section class="welcome-container">
+  <section style="margin: 3em;" class="col-sm-4">
     <div class="jumbotron">
-      <p class="lead">Save all your links in one spot.</p>
+      <p class="lead"></p>
       <hr class="my-4">
-      <form>
+
+      <form method = "POST" action = "/resources/addResource">
         <div class="form-group">
-          <label for="formGroupExampleInput">Title</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+          <label for="exampleFormControlInput1">Title</label>
+          <input type="text" name = "title" class="form-control" id="exampleFormControlInput1" placeholder="Tilte of resource">
+        </div>
+        <div class="form-group" >
+          <label for="exampleFormControlTextarea1">Description</label>
+          <textarea class="form-control" name = "description" id="exampleFormControlTextarea1" rows="3" placeholder="Resource description"></textarea>
         </div>
         <div class="form-group">
-          <label for="formGroupExampleInput2">Description</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+          <label for="exampleFormControlSelect1">Categories</label>
+          <select class="form-control" id="exampleFormControlSelect1" name = "category_id">
+            <option value = 1>TECH</option>
+            <option value = 2>ASTRONOMY</option value>
+            <option value = 3>HISTORY</option>
+            <option value = 4>SCIENCE</option>
+            <option value = 5>BIOLOGY</option>
+          </select>
         </div>
         <div class="form-group">
-          <label for="formGroupExampleInput2">URL</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+          <label for="exampleFormControlInput1">URL</label>
+          <input type="text" name = "url" class="form-control" id="exampleFormControlInput1" placeholder="URL of resource">
         </div>
-        <fieldset class="form-group">
-          <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0">Categories</legend>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option2">
-                <label class="form-check-label" for="gridRadios1">
-                  Tech
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                <label class="form-check-label" for="gridRadios2">
-                  Astronomy
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                <label class="form-check-label" for="gridRadios2">
-                  History
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                <label class="form-check-label" for="gridRadios2">
-                  Science
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                <label class="form-check-label" for="gridRadios2">
-                  Biology
-                </label>
-              </div>
-            </div>
-          </div>
-        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-      <input class="btn btn-outline-success btn-lg" type="submit" value="Save">
       <!-- <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a> -->
     </div>
   </section>
