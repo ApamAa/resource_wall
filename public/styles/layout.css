@@ -9,3 +9,10 @@ select {
   padding: 2px 5px;
   width: 23%;
 }
+
+/* Navbar */
+/* Add Resource Jumbotron */
+.jumbotron {
+  width: 50%;
+  margin: 0 auto;
+}
