@@ -27,4 +27,10 @@ select {
 .jumbotron {
   width: 50%;
   margin: 0 auto;
+  background-color: #faf6d6;
+}
+
+.custom-jumbotron {
+  margin-top: 3em;
+  margin-bottom: 5em;
 }
