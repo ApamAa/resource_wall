@@ -10,7 +10,20 @@ select {
   width: 23%;
 }
 
-/* Navbar */
+/* Navbar*/
+.navbar-light
+.navbar-brand {
+  color: #808080;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+/* Home Page */
+.index-wrapper {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
 /* Add Resource Jumbotron */
 .jumbotron {
   width: 50%;
