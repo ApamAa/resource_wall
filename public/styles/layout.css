@@ -23,7 +23,11 @@ select {
   padding-bottom: 3em;
 }
 
-/* Add Resource Jumbotron */
+h5 {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+/* Add Resource Page */
 .jumbotron {
   width: 50%;
   margin: 0 auto;
@@ -33,6 +37,12 @@ select {
 .custom-jumbotron {
   margin-top: 3em;
   margin-bottom: 5em;
+}
+
+.lead {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: green;
 }
 
 /* Login, Register and Edit Page */
@@ -45,7 +55,7 @@ select {
 .page-wrapper {
   margin-top: 3em;
   padding: 3em;
-  background-color: #faf6d6;
+  background-color: #f8f9fa;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
