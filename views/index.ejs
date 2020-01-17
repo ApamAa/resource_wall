@@ -25,7 +25,6 @@
   <%- include('./partials/_header'); %>
   <title>Resource Wall</title>
 </head>
-<script>function clickHandle(event) { console.log('value:', arguments); }</script>
 
 <body>
 
@@ -34,7 +33,6 @@
       <% if (allResources.length > 0) { %>
       <div class="card-columns">
         <% allResources.forEach(function(resource, index) { %>
-        <!-- start from 4th element apply hideme class for scroll -->
         <div class="card hideme" data-resourceId="<%= resource.res_id %>">
           <img class="card-img-top" src="<%= resource.category_photo_url%>" alt="Card image cap">
           <div class="social">
@@ -75,14 +73,10 @@
         <% }) %>
       </div>
       <% }%>
-
-
     </div>
-
+  </div>
   </div>
 
-
-  </div>
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
