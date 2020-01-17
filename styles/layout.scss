@@ -64,7 +64,7 @@ a.visit-btn {
 }
 
 .card-columns {
-  width: 80%;
+  width: 90%;
   padding-bottom: 3em;
 }
 
@@ -79,11 +79,21 @@ a.visit-btn {
   color: green;
 }
 
+.fa-heart {
+  color: green;
+}
+
 a.link-color:hover {
   color: green;
 }
 
 .social {
+  display: flex;
+  justify-content: space-between;
+  padding: .50em;
+}
+
+.review-rating {
   display: flex;
   justify-content: space-between;
   padding: .50em;
