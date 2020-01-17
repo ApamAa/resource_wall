@@ -58,3 +58,11 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+
+## Screenshots
+
+!["Home Page"](https://github.com/ApamAa/resource_wall/blob/master/docs/1_home-page.png)
+!["Add Resource Page"](https://github.com/ApamAa/resource_wall/blob/master/docs/2_add-resource-page.png)
+!["Review Page"](https://github.com/ApamAa/resource_wall/blob/master/docs/3_review-page.png)
+!["My Wall Page"](https://github.com/ApamAa/resource_wall/blob/master/docs/4_my-wall-page.png)
+
