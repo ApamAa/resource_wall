@@ -9,3 +9,61 @@ select {
   padding: 2px 5px;
   width: 23%;
 }
+
+/* Navbar*/
+.navbar-light
+.navbar-brand {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+/* Home Page */
+.index-wrapper {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+/* Add Resource Jumbotron */
+.jumbotron {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+}
+
+.custom-jumbotron {
+  margin-top: 3em;
+  margin-bottom: 5em;
+}
+
+/* Login, Register and Edit Page */
+.register-page {
+  margin-top: 3em;
+  margin-left: 9em;
+}
+
+/* Review Page */
+.page-wrapper {
+  margin-top: 3em;
+  padding: 3em;
+  background-color: #faf6d6;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3em;
+}
+
+a.visit-btn {
+  color: green;
+}
+
+/* Icons */
+.fa-star,
+.fa-link,
+.fa-info-circle,
+.like {
+  color: green;
+}
+
+a.link-color:hover {
+  color: green;
+}

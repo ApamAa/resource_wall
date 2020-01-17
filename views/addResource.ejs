@@ -4,10 +4,13 @@
 <head>
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <!-- Boostrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,600,700&display=swap"
@@ -16,28 +19,26 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
-   <!-- Font Awesome JS -->
-   <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
+  <!-- Font Awesome JS -->
+  <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
 
   <%- include('./partials/_header'); %>
-  <title>+</title>
 </head>
-<%console.log('inja')%>
+
 <body>
 <!-- Jumbotron Save Link Container -->
-  <section style="margin: 3em;" class="col-sm-4">
-    <div class="jumbotron">
-      <p class="lead"></p>
+    <div class="jumbotron custom-jumbotron">
+      <p class="lead">Save all your links in one spot.</p>
       <hr class="my-4">
 
       <form method = "POST" action = "/resources/addResource">
         <div class="form-group">
           <label for="exampleFormControlInput1">Title</label>
-          <input type="text" name = "title" class="form-control" id="exampleFormControlInput1" placeholder="Tilte of resource">
+          <input type="text" name = "title" class="form-control" id="exampleFormControlInput1" placeholder="">
         </div>
         <div class="form-group" >
           <label for="exampleFormControlTextarea1">Description</label>
-          <textarea class="form-control" name = "description" id="exampleFormControlTextarea1" rows="3" placeholder="Resource description"></textarea>
+          <textarea class="form-control" name = "description" id="exampleFormControlTextarea1" rows="3" placeholder=""></textarea>
         </div>
         <div class="form-group">
           <label for="exampleFormControlSelect1">Categories</label>
@@ -51,13 +52,12 @@
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">URL</label>
-          <input type="text" name = "url" class="form-control" id="exampleFormControlInput1" placeholder="URL of resource">
+          <input type="text" name = "url" class="form-control" id="exampleFormControlInput1" placeholder="">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
       </form>
       <!-- <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a> -->
     </div>
-  </section>
 
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
