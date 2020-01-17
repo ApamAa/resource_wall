@@ -28,45 +28,6 @@
 
 <body>
 
-  <div   class="container resources">
-    <div class="row justify-content-center">
-        <div class="card-columns">
-          <% allComments.forEach(function(commentItem, index) { %>
-            <!-- start from 4th element apply hideme class for scroll -->
-            <div class="card hideme">
-
-                <% if (commentItem.like_this) { %>
-
-                  <i class="fa fa-heart" data-likes="<%=  commentItem.like_this %>"></i>
-                <% } else { %>
-                  <i class="far fa-heart" data-likes="<%=  commentItem.like_this %>"></i>
-                <% } %>
-                <span class="like"><%= commentItem.rating %></span>
-                <span>
-                    <% if (commentItem.rating) { %>
-                      <% for ( i = 0; i < commentItem.rating; i += 1){ %>
-                        <i class="fas fa-star"></i>
-                      <% } %>
-                    <% } else { %>
-                      <i class="far fa-star"></i>
-                    <% } %>
-                  </span>
-              </a>
-              <div class="card-body">
-                <h5 class="card-title"><%= commentItem.title %></h5>
-                <br>
-                <div class="toggle">
-                  <p class="card-text"><%= commentItem.description %></p>
-                  <hr>
-                </div>
-              </div>
-            </div>
-          <% }) %>
-        </div>
-    </div>
-  </div>
-
-
   <div class="page-wrapper">
     <header>
       <h2 class="review-title"><%= resource.name %></h2>
@@ -104,6 +65,42 @@
   </div>
     </footer>
   </div>
+
+    <div class="row justify-content-center">
+        <div class="card-columns">
+          <% allComments.forEach(function(commentItem, index) { %>
+            <!-- start from 4th element apply hideme class for scroll -->
+            <div class="card hideme">
+
+                <% if (commentItem.like_this) { %>
+
+                  <i class="fa fa-heart" data-likes="<%=  commentItem.like_this %>"></i>
+                <% } else { %>
+                  <i class="far fa-heart" data-likes="<%=  commentItem.like_this %>"></i>
+                <% } %>
+                <span class="like"><%= commentItem.rating %></span>
+                <span>
+                    <% if (commentItem.rating) { %>
+                      <% for ( i = 0; i < commentItem.rating; i += 1){ %>
+                        <i class="fas fa-star"></i>
+                      <% } %>
+                    <% } else { %>
+                      <i class="far fa-star"></i>
+                    <% } %>
+                  </span>
+              </a>
+              <div class="card-body">
+                <h5 class="card-title"><%= commentItem.title %></h5>
+                <br>
+                <div class="toggle">
+                  <p class="card-text"><%= commentItem.description %></p>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+    </div>
 
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
