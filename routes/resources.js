@@ -13,13 +13,12 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     let userID = req.session.userId;
     console.log(userID);
-    let query = `SELECT * FROM (SELECT x.id,title,description,url,user_id,category_id,name,category_photo_url,y.res_id,y.avg_rating FROM resources x
+    let query = `SELECT * FROM (SELECT x.id,title,description,url,user_id,category_id,name,category_photo_url,y.res_id,y.avg_rating , y.comment_count FROM resources x
       JOIN categories ON categories.id = category_id
-      JOIN (SELECT resources.id as res_id, round(avg(comment_likes.rating),1) as avg_rating FROM resources
-            LEFT JOIN comment_likes ON resource_id = resources.id
+      JOIN (SELECT resources.id as res_id, round(avg(c_of_i.rating),1) as avg_rating  , count(c_of_i.description) as comment_count FROM resources
+            LEFT JOIN (SELECT * FROM comment_likes) c_of_i ON c_of_i.resource_id = resources.id
             GROUP BY resources.id) y
-            ON x.id = y.res_id) t1
-      LEFT OUTER JOIN (SELECT rating, like_this, user_id, resource_id FROM comment_likes) t2 ON t1.id = t2.resource_id;`;
+      ON x.id = y.res_id) t1;`;
 
     // console.log(query);
     db.query(query)
@@ -39,9 +38,13 @@ module.exports = (db) => {
     let userID = req.session.userId;
     let resourceID = req.params.id;
     console.log(resourceID);
-    let query = `SELECT * FROM resources
-                  JOIN categories ON categories.id = category_id
-                  WHERE categories.name = $1;`;
+    let query = `SELECT * FROM (SELECT x.id,title,description,url,user_id,category_id,name,category_photo_url,y.res_id,y.avg_rating , y.comment_count FROM resources x
+      JOIN categories ON categories.id = category_id
+      JOIN (SELECT resources.id as res_id, round(avg(c_of_i.rating),1) as avg_rating , count(c_of_i.description) as comment_count FROM resources
+            LEFT JOIN (SELECT * FROM comment_likes) c_of_i ON c_of_i.resource_id = resources.id
+            GROUP BY resources.id) y
+      ON x.id = y.res_id) t1
+	  WHERE name = $1`;
 
     console.log(query);
     db.query(query,[resourceID])
@@ -62,12 +65,16 @@ module.exports = (db) => {
     let searchItem = req.body.searchItem;
     console.log(searchItem);
 
-    let query = `SELECT * FROM resources
-                JOIN categories ON categories.id = category_id
-                WHERE description ILIKE $1
+    let query = `SELECT * FROM (SELECT x.id,title,description,url,user_id,category_id,name,category_photo_url,y.res_id,y.avg_rating, y.comment_count FROM resources x
+      JOIN categories ON categories.id = category_id
+      JOIN (SELECT resources.id as res_id, round(avg(c_of_i.rating),1) as avg_rating , count(c_of_i.description) as comment_count FROM resources
+            LEFT JOIN (SELECT * FROM comment_likes) c_of_i ON c_of_i.resource_id = resources.id
+            GROUP BY resources.id) y
+      ON x.id = y.res_id) t1
+	  	  WHERE description ILIKE $1
                 OR name ILIKE $1
                 OR title ILIKE $1
-                OR url ILIKE $1;`;
+                OR url ILIKE $1`;
     console.log(query);
     db.query(query,['%' + searchItem + '%'])
       .then(data => {
@@ -86,7 +93,7 @@ module.exports = (db) => {
     res.render("addResource", {userId : userID});
   });
 
-
+  //add new url to the resources
   router.post("/addResource", (req, res) => {
     let title = req.body.title;
     let description = req.body.description;
@@ -94,7 +101,6 @@ module.exports = (db) => {
     let userID = req.session.userId;
     let category = Number(req.body.category_id);
 
-    //res.json([title, description, url, userID, category]);
     db.query(`INSERT INTO resources(title, description, url, user_id, category_id)
               VALUES($1, $2, $3, $4, $5);`, [title, description, url, userID, category])
       .then(() => {
@@ -138,7 +144,7 @@ module.exports = (db) => {
       if (Number(data.rows[0].count) === 0) {
         db.query(`INSERT INTO comment_likes (rating, description, like_this, user_id, resource_id) VALUES ($1,$2,$3,$4,$5);`,[rating, description, like_this,userID,id]).then(() => {
           res.redirect(`/resources/review/${id}`);
-          //db.query(`SELECT * FROM comment_likes`).then((data)=> res.json(data.rows))
+
         })
           .catch(err => {
             res.send(err);
@@ -146,7 +152,7 @@ module.exports = (db) => {
       } else {
         db.query(`UPDATE comment_likes SET rating = $1, description = $2, like_this = $3  WHERE user_id = $4 AND resource_id = $5;`,[rating, description, like_this,userID,id]).then(() => {
           res.redirect(`/resources/review/${id}`);
-          //db.query(`SELECT * FROM comment_likes`).then((data)=> res.json(data.rows));
+
         })
           .catch(err => {
             res.send(err);
@@ -158,7 +164,23 @@ module.exports = (db) => {
       });
   });
 
-
+  router.get("/mywall",(req, res) => {
+    let userID = req.session.userId;
+    db.query(`SELECT * FROM (SELECT x.id,title,description,url,user_id,category_id,name,category_photo_url,y.res_id,y.avg_rating , y.comment_count FROM resources x
+    JOIN categories ON categories.id = category_id
+    JOIN (SELECT resources.id as res_id, round(avg(c_of_i.rating),1) as avg_rating  , count(c_of_i.description) as comment_count FROM resources
+          LEFT JOIN (SELECT * FROM comment_likes WHERE user_id = $1) c_of_i ON c_of_i.resource_id = resources.id
+          GROUP BY resources.id) y
+    ON x.id = y.res_id) t1
+    WHERE user_id = $1 OR avg_rating IS NOT NULL;`,[userID])
+      .then(data => {
+        const resource = data.rows;
+        res.render("index",{ allResources : resource, userID : userID});
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  });
   return router;
 };
 

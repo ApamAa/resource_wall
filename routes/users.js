@@ -21,7 +21,7 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-
+  //rout for register
   router.get("/register", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
@@ -34,6 +34,7 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
   router.post("/register", (req, res) => {
     let name = req.body.name;
     let email = req.body.email;
@@ -59,6 +60,7 @@ module.exports = (db) => {
       });
 
   });
+  //rout for login
   router.get("/login", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
@@ -86,12 +88,34 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+  //rout for logout
   router.get("/logout", (req, res) => {
     delete req.session.userId;
     res.redirect('/');
   });
+  //rout for edit profile
+
+  router.get("/editprofile", (req, res) => {
+    let userID = req.session.userId;
+    res.render("editprofile", { userID});
+  });
 
 
+  router.post("/editprofile", (req, res) => {
+    let userID = req.session.userId;
+    let name = req.body.name;
+    let email = req.body.email;
+    db.query(`UPDATE users SET  name = $1, email = $2 WHERE id = $3;`, [name, email,userID])
+      .then(data => {
+
+        res.redirect("/");
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
 
 
   return router;
