@@ -63,15 +63,28 @@ a.visit-btn {
   color: green;
 }
 
+.card-columns {
+  width: 80%;
+  padding-bottom: 3em;
+}
+
 /* Icons */
 
 .fa-star,
-.fa-link,
-.fa-info-circle,
 .like {
+  color: green;
+}
+
+.fa-comments {
   color: green;
 }
 
 a.link-color:hover {
   color: green;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  padding: .50em;
 }

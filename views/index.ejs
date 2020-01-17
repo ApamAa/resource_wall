@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
 
   <!-- Boostrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -18,24 +19,26 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
-   <!-- Font Awesome JS -->
-   <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
+  <!-- Font Awesome JS -->
+  <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js" data-auto-replace-svg="nest"></script>
 
   <%- include('./partials/_header'); %>
   <title>Resource Wall</title>
 </head>
-<script>function clickHandle (event) { console.log('value:', arguments); }</script>
+<script>function clickHandle(event) { console.log('value:', arguments); }</script>
+
 <body>
 
-  <div   class="container resources">
+  <div class="container resources">
     <div class="row justify-content-center index-wrapper">
       <% if (allResources.length > 0) { %>
-        <div class="card-columns">
-          <% allResources.forEach(function(resource, index) { %>
-            <!-- start from 4th element apply hideme class for scroll -->
-            <div class="card hideme" data-resourceId="<%= resource.res_id %>">
-              <img class="card-img-top" src="<%= resource.category_photo_url%>" alt="Card image cap">
-              <a class="nav-link active hide" href="#">                <!--
+      <div class="card-columns">
+        <% allResources.forEach(function(resource, index) { %>
+        <!-- start from 4th element apply hideme class for scroll -->
+        <div class="card hideme" data-resourceId="<%= resource.res_id %>">
+          <img class="card-img-top" src="<%= resource.category_photo_url%>" alt="Card image cap">
+          <div class="social">
+            <!--
                 <% if (resource.like_this) { %>
 
                   <i class="fa fa-heart" data-likes="<%=  resource.like_this %>"></i>
@@ -43,50 +46,61 @@
                   <i class="far fa-heart" data-likes="<%=  resource.like_this %>"></i>
                 <% } %>
                 -->
-                <span class="like"><%= resource.avg_rating %></span>
-                <span>
-                    <% if (resource.avg_rating) { %>
-                      <% for ( i = 0; i < resource.avg_rating; i += 1){ %>
-                        <i class="fas fa-star"></i>
-                      <% } %>
-                    <% } else { %>
-                      <i class="far fa-star"></i>
-                    <% } %>
-                  </span>
-                <span class="like"><%= resource.comment_count %></span>
-                <span>
-                  <i class="fas fa-comments"></i>
-                </span>
-
-              </a>
-              <div class="card-body">
-                <h5 class="card-title"><%= resource.title %></h5>
-                <br>
-                <div class="toggle">
-                  <p class="card-text"><%= resource.description %></p>
-                  <hr>
-                  <div class="text-center">
-                    <a href="<%= resource.url %>" target="_blank" class="btn btn-sm link-color"><i class="fas fa-link"></i> Visit</a>
-                    <a href="/resources/review/<%= resource.res_id%>" class="btn btn-sm link-color"><i class="fas fa-info-circle"></i> More</a>
-                  </div>
-                </div>
+            <div>
+              <span class="like"><%= resource.avg_rating %></span>
+              <span class="stars">
+                <% if (resource.avg_rating) { %>
+                <% for ( i = 0; i < resource.avg_rating; i += 1){ %>
+                <i class="fas fa-star"></i>
+                <% } %>
+                <% } else { %>
+                <i class="far fa-star"></i>
+                <% } %>
+              </span>
+            </div>
+            <div>
+              <span class="like"><%= resource.comment_count %></span>
+              <span class="comments">
+                <i class="fas fa-comments"></i>
+              </span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= resource.title %></h5>
+            <br>
+            <div class="toggle">
+              <p class="card-text"><%= resource.description %></p>
+              <hr>
+              <div class="text-center">
+                <a href="<%= resource.url %>" target="_blank" class="btn btn-sm link-color"><i class="fas fa-link"></i>
+                  Visit</a>
+                <a href="/resources/review/<%= resource.res_id%>" class="btn btn-sm link-color"><i
+                    class="fas fa-info-circle"></i> More</a>
               </div>
             </div>
-          <% }) %>
+          </div>
         </div>
+        <% }) %>
+      </div>
       <% }%>
 
 
     </div>
 
-    </div>
+  </div>
 
 
   </div>
-<!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
